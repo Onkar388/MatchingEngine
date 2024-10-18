@@ -22,5 +22,7 @@ Before you begin, ensure you have met the following requirements:
 npm install
 
 Run Cypress test
+
 npx cypress open
+
 npx cypress run
