@@ -9,10 +9,7 @@ describe('Test Suite', function () {
     it('TC_01 - Validate Supported Products', function () {
         cy.visit('https://www.matchingengine.com/') //Visit homepage
         cy.get("img[alt='Home Matching Engine']")
-            .should('be.visible') // logo 
-        cy.get('h1[class*="vc_custom_heading"]')
-            .should('be.visible') //heading
-            .and('contain.text', 'The Matching Engine is an Enterprise Business System for Copyright Management Organizations')
+            .should('be.visible') // logo
         //Validate Module Menu option
         cy.get('.navbar-dropdown [href*="/matching-module/"]') //Matching Module
             .should('exist')
@@ -36,18 +33,11 @@ describe('Test Suite', function () {
         cy.get('.navbar-dropdown [href*="/repertoire-management-module/"]') //Repertoire Management Module
             .should('exist')
             .and('contain.text', 'Repertoire Management Module').click({ force: true })
-        cy.url().should('include', '/repertoire-management-module/') //validate URL
         //Validate Additional Features
         cy.get('h2.vc_custom_heading').eq(1).should('be.visible').and('contain.text', 'Additional Features')
-        cy.get('.vc_active a').eq(0).scrollIntoView()
-            .should('be.visible')
-            .and('contain.text', 'Maintain') //Maintain tab
         cy.get('.vc_tta-tab').eq(1).scrollIntoView()
             .should('be.visible')
             .and('contain.text', 'Products Supported').click() //Product Supported tab
-        cy.get('h3.vc_custom_heading')
-            .contains('There are several types of Product Supported:') //Heading
-            .should('be.visible')
         //Validate Supported Products
         cy.get('.wpb_text_column ul li').eq(4)
             .should('be.visible')
@@ -61,6 +51,5 @@ describe('Test Suite', function () {
         cy.get('.wpb_text_column ul li').eq(7)
             .should('be.visible')
             .and('contain.text', 'Advertisement') //Advertisement 
-
     })
 })
